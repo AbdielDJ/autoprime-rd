@@ -1,6 +1,6 @@
 import type { Vehiculo } from "../types/vehicle";
 
-const API_URL = "https://localhost:7273/api";
+const API_URL = "https://autoprime-api.onrender.com/api";
 
 export async function getVehiculos(): Promise<Vehiculo[]> {
   const res = await fetch(`${API_URL}/vehiculos`);
