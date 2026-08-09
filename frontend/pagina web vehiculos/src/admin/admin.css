@@ -1,0 +1,864 @@
+/* ============================================
+   AutoPrime — Panel Administrativo
+   Tema: Dark + Amarillo (acorde al sitio público)
+   ============================================ */
+
+.admin-layout,
+.admin-login-pantalla {
+  --ap-bg: #090c14;
+  --ap-bg-card: #141a29;
+  --ap-bg-card-hover: #171e30;
+  --ap-border: #232b3d;
+  --ap-border-soft: #1b2233;
+  --ap-text: #e8e8e6;
+  --ap-text-muted: #8b8f9e;
+  --ap-yellow: #f5c451;
+  --ap-yellow-soft: rgba(245, 196, 81, 0.12);
+  --ap-yellow-dark: #3a2404;
+  --ap-green: #5dcaa5;
+  --ap-green-bg: #12281f;
+  --ap-red: #e6717a;
+  --ap-red-bg: #2c1519;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--ap-text);
+}
+
+/* ---------- Layout general ---------- */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(245, 196, 81, 0.05) 0%, transparent 45%),
+    var(--ap-bg);
+}
+
+.admin-sidebar {
+  width: 252px;
+  flex-shrink: 0;
+  background: #0c1019;
+  border-right: 1px solid var(--ap-border-soft);
+  padding: 1.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.admin-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+  padding: 0 0.4rem;
+}
+
+.admin-logo-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--ap-yellow), #e0a52e);
+  color: var(--ap-yellow-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(245, 196, 81, 0.25);
+}
+
+.admin-sidebar-logo p {
+  margin: 0;
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.admin-sidebar-logo p.admin-label {
+  font-size: 10.5px;
+  color: var(--ap-text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.admin-sidebar nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.62rem 0.75rem;
+  border-radius: 9px;
+  color: var(--ap-text-muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
+  position: relative;
+}
+
+.admin-nav-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.admin-sidebar nav a:hover {
+  background: var(--ap-bg-card);
+  color: #fff;
+}
+
+.admin-sidebar nav a.admin-nav-activo {
+  background: var(--ap-yellow-soft);
+  color: var(--ap-yellow);
+  font-weight: 600;
+}
+
+.admin-sidebar nav a.admin-nav-activo::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: var(--ap-yellow);
+  border-radius: 0 4px 4px 0;
+}
+
+.admin-nav-separador {
+  height: 1px;
+  background: var(--ap-border-soft);
+  margin: 0.75rem 0.5rem;
+}
+
+.admin-sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.75rem;
+  border-top: 1px solid var(--ap-border-soft);
+  margin-top: 0.5rem;
+}
+
+.admin-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ap-yellow);
+  flex-shrink: 0;
+}
+
+.admin-sidebar-footer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-sidebar-footer-info p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-sidebar-footer-info p.admin-label {
+  font-size: 10.5px;
+  color: var(--ap-text-muted);
+}
+
+.admin-logout-icono {
+  background: none;
+  border: 1px solid var(--ap-border);
+  color: var(--ap-text-muted);
+  border-radius: 7px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.admin-logout-icono:hover {
+  border-color: var(--ap-red);
+  color: var(--ap-red);
+  background: var(--ap-red-bg);
+}
+
+.admin-contenido {
+  flex: 1;
+  padding: 2.25rem 2.75rem;
+  max-width: 1040px;
+}
+
+/* ---------- Encabezados y botones comunes ---------- */
+
+.admin-contenido h1 {
+  font-size: 25px;
+  color: #fff;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.admin-contenido h2 {
+  font-size: 16.5px;
+  color: #fff;
+  margin: 2.25rem 0 0.85rem;
+  font-weight: 600;
+}
+
+.admin-label {
+  font-size: 12px;
+  color: var(--ap-text-muted);
+  margin: 0 0 4px;
+}
+
+.admin-listado-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-btn-primario {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--ap-yellow), #e0a52e);
+  color: var(--ap-yellow-dark);
+  border: none;
+  border-radius: 9px;
+  padding: 0.62rem 1.15rem;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: filter 0.15s, transform 0.1s;
+  box-shadow: 0 4px 14px rgba(245, 196, 81, 0.18);
+}
+
+.admin-btn-primario:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.admin-btn-primario:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.admin-error {
+  background: var(--ap-red-bg);
+  color: var(--ap-red);
+  border: 1px solid #472128;
+  border-radius: 9px;
+  padding: 0.7rem 0.95rem;
+  font-size: 13px;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Cards / formulario de factura ---------- */
+
+.admin-factura-form {
+  max-width: 640px;
+}
+
+.admin-card {
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border-soft);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.admin-card:focus-within {
+  border-color: rgba(245, 196, 81, 0.35);
+}
+
+.admin-card label {
+  display: block;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ap-text-muted);
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.admin-card input,
+.admin-card select {
+  width: 100%;
+  background: #0b0f18;
+  border: 1px solid var(--ap-border);
+  border-radius: 8px;
+  height: 38px;
+  color: #fff;
+  padding: 0 11px;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.admin-card input:focus,
+.admin-card select:focus {
+  outline: none;
+  border-color: var(--ap-yellow);
+}
+
+.admin-card select option {
+  background: #0b0f18;
+  color: #fff;
+}
+
+.admin-card button[type="button"] {
+  margin-top: 0.6rem;
+  background: none;
+  border: 1px solid var(--ap-border);
+  color: var(--ap-text);
+  border-radius: 8px;
+  padding: 0.45rem 0.8rem;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-card button[type="button"]:hover {
+  border-color: var(--ap-yellow);
+  color: var(--ap-yellow);
+}
+
+.admin-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.admin-nuevo-cliente {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.admin-nuevo-cliente div {
+  display: flex;
+  gap: 0.6rem;
+}
+
+/* ---------- Resumen de totales ---------- */
+
+.admin-resumen-linea {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ap-text-muted);
+  margin-bottom: 6px;
+}
+
+.admin-resumen-total {
+  border-top: 1px solid var(--ap-border-soft);
+  padding-top: 10px;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-resumen-total span:first-child {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.admin-resumen-total span:last-child {
+  font-size: 21px;
+  color: var(--ap-yellow);
+  font-weight: 700;
+}
+
+.admin-factura-form > .admin-btn-primario {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 15px;
+  border: none;
+}
+
+/* ---------- Tablas (listado de facturas / dashboard) ---------- */
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border-soft);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-tabla thead {
+  background: #0d1220;
+}
+
+.admin-tabla th {
+  text-align: left;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ap-text-muted);
+  padding: 0.8rem 1.1rem;
+  font-weight: 700;
+}
+
+.admin-tabla td {
+  padding: 0.8rem 1.1rem;
+  font-size: 13.5px;
+  border-top: 1px solid var(--ap-border-soft);
+  color: var(--ap-text);
+}
+
+.admin-tabla tbody tr {
+  transition: background 0.12s ease;
+}
+
+.admin-tabla tbody tr:hover {
+  background: rgba(245, 196, 81, 0.035);
+}
+
+.admin-tabla a {
+  color: var(--ap-yellow);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12.5px;
+}
+
+.admin-tabla a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Badges de estado ---------- */
+
+.admin-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.admin-badge-pagada {
+  background: var(--ap-green-bg);
+  color: var(--ap-green);
+}
+
+.admin-badge-pendiente,
+.admin-badge-nueva {
+  background: #2e2810;
+  color: var(--ap-yellow);
+}
+
+.admin-badge-anulada,
+.admin-badge-cerrada {
+  background: var(--ap-red-bg);
+  color: var(--ap-red);
+}
+
+.admin-badge-contactada {
+  background: #142334;
+  color: #6fb8e6;
+}
+
+/* ---------- Dashboard / stats ---------- */
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.admin-stat-card {
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border-soft);
+  border-radius: 12px;
+  padding: 1.15rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-stat-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, rgba(245, 196, 81, 0.08), transparent 70%);
+}
+
+.admin-stat-valor {
+  font-size: 25px;
+  color: #fff;
+  font-weight: 700;
+  margin: 4px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Vista/detalle de factura (imprimible) ---------- */
+
+.admin-factura-detalle {
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border-soft);
+  border-radius: 14px;
+  padding: 2rem;
+  max-width: 640px;
+}
+
+.admin-factura-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--ap-border-soft);
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.admin-factura-header h1 {
+  color: var(--ap-yellow);
+  font-size: 21px;
+  margin: 0;
+}
+
+.admin-factura-header p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--ap-text-muted);
+}
+
+.admin-factura-numero {
+  text-align: right;
+}
+
+.admin-factura-numero p:first-child {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  margin: 0;
+}
+
+.admin-factura-numero p:nth-child(2) {
+  font-size: 12px;
+  color: var(--ap-text-muted);
+  margin: 2px 0 6px;
+}
+
+.admin-factura-partes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-factura-partes p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.admin-factura-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+}
+
+.admin-factura-tabla th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--ap-text-muted);
+  border-bottom: 1px solid var(--ap-border-soft);
+  padding-bottom: 6px;
+}
+
+.admin-factura-tabla td {
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--ap-border-soft);
+}
+
+.admin-factura-tabla td:last-child {
+  text-align: right;
+}
+
+.admin-factura-totales {
+  margin-left: auto;
+  width: 260px;
+  margin-bottom: 1.5rem;
+}
+
+.admin-factura-totales > div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--ap-text-muted);
+  padding: 4px 0;
+}
+
+.admin-factura-total-final {
+  border-top: 1px solid var(--ap-border-soft);
+  margin-top: 6px;
+  padding-top: 10px !important;
+}
+
+.admin-factura-total-final span:first-child {
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-factura-total-final span:last-child {
+  color: var(--ap-yellow);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.admin-factura-meta {
+  border-top: 1px solid var(--ap-border-soft);
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-factura-meta p {
+  font-size: 13px;
+  color: var(--ap-text-muted);
+  margin: 3px 0;
+}
+
+.admin-factura-acciones {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.admin-factura-acciones button {
+  background: linear-gradient(135deg, var(--ap-yellow), #e0a52e);
+  color: var(--ap-yellow-dark);
+  border: none;
+  border-radius: 9px;
+  padding: 0.6rem 1.15rem;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.admin-factura-acciones a {
+  color: var(--ap-text-muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.admin-factura-acciones a:hover {
+  color: var(--ap-yellow);
+}
+
+/* ---------- Login ---------- */
+
+.admin-login-pantalla {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 0%, #17203a 0%, transparent 55%),
+    radial-gradient(circle at 90% 90%, rgba(245, 196, 81, 0.06), transparent 40%),
+    var(--ap-bg);
+  padding: 1rem;
+}
+
+.admin-login-card {
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border-soft);
+  border-radius: 16px;
+  padding: 2.4rem 2.1rem;
+  width: 100%;
+  max-width: 370px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+}
+
+.admin-login-icono {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(245, 196, 81, 0.1);
+  border: 1px solid rgba(245, 196, 81, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin: 0 auto 1.1rem;
+}
+
+.admin-login-card h1 {
+  font-size: 18px;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.admin-login-card > p.admin-label {
+  margin-bottom: 1.5rem;
+}
+
+.admin-login-card label {
+  display: block;
+  text-align: left;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ap-text-muted);
+  margin: 0.9rem 0 6px;
+  font-weight: 600;
+}
+
+.admin-login-card input {
+  width: 100%;
+  background: #0b0f18;
+  border: 1px solid var(--ap-border);
+  border-radius: 9px;
+  height: 42px;
+  color: #fff;
+  padding: 0 13px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+}
+
+.admin-login-card input:focus {
+  outline: none;
+  border-color: var(--ap-yellow);
+}
+
+.admin-login-card .admin-btn-primario {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.6rem;
+  padding: 0.75rem;
+  border: none;
+  font-size: 14px;
+}
+
+.admin-login-card .admin-error {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+/* ---------- Botón eliminar / selects extra ---------- */
+
+.admin-eliminar-btn {
+  background: none;
+  border: 1px solid var(--ap-red);
+  color: var(--ap-red);
+  border-radius: 7px;
+  padding: 0.32rem 0.75rem;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-eliminar-btn:hover {
+  background: var(--ap-red-bg);
+}
+
+.admin-cotizaciones select {
+  background: #0b0f18;
+  border: 1px solid var(--ap-border);
+  color: #fff;
+  border-radius: 7px;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+/* ---------- Impresión ---------- */
+
+@media print {
+  .admin-sidebar,
+  .admin-factura-acciones {
+    display: none !important;
+  }
+
+  .admin-contenido {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .admin-factura-detalle {
+    border: none;
+    padding: 0;
+  }
+}
+
+/* ---------- Responsive básico ---------- */
+
+@media (max-width: 720px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  .admin-sidebar nav {
+    flex-direction: row;
+  }
+
+  .admin-sidebar-footer {
+    display: none;
+  }
+
+  .admin-contenido {
+    padding: 1.25rem;
+  }
+
+  .admin-grid-2,
+  .admin-stats-grid,
+  .admin-factura-partes {
+    grid-template-columns: 1fr;
+  }
+}

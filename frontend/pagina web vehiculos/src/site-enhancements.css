@@ -1,0 +1,146 @@
+/* ============================================
+   Mejoras visuales del sitio público
+   Se cargan DESPUÉS de App.css para refinar detalles
+   ============================================ */
+
+.navbar {
+  backdrop-filter: blur(10px);
+  transition: background 0.2s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #f5c451, #dfa42c);
+  box-shadow: 0 8px 24px rgba(245, 196, 81, 0.22);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(245, 196, 81, 0.32);
+}
+
+.btn.secondary {
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.btn.secondary:hover {
+  transform: translateY(-2px);
+}
+
+.heroCard {
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.vehicleCard {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.vehicleCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.vehicleMedia img {
+  transition: transform 0.35s ease;
+}
+
+.vehicleCard:hover .vehicleMedia img {
+  transform: scale(1.05);
+}
+
+.vehicleStatus {
+  backdrop-filter: blur(6px);
+}
+
+.cardPrice {
+  background: linear-gradient(90deg, #f5c451, #e8b843);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.detailButton {
+  transition: gap 0.15s ease, color 0.15s ease;
+}
+
+.detailButton:hover {
+  gap: 10px;
+  color: #f5c451;
+}
+
+.serviceGrid article {
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.serviceGrid article:hover {
+  transform: translateY(-3px);
+}
+
+.statsBar article strong {
+  background: linear-gradient(90deg, #f5c451, #e8b843);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.whatsappButton {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(34, 197, 94, 0.28);
+}
+
+.floatingWhatsapp {
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35);
+  transition: transform 0.15s ease;
+}
+
+.floatingWhatsapp:hover {
+  transform: scale(1.08);
+}
+
+.filterPanel input,
+.filterPanel select {
+  transition: border-color 0.15s ease;
+}
+
+.filterPanel input:focus,
+.filterPanel select:focus {
+  outline: none;
+  border-color: #f5c451;
+}
+
+.financeResult strong {
+  background: linear-gradient(90deg, #f5c451, #e8b843);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.experienceBadge {
+  backdrop-filter: blur(10px);
+}
+
+.thumbnails button.active {
+  border-color: #f5c451;
+}
+
+.featuresGrid div {
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.featuresGrid div:hover {
+  transform: translateX(3px);
+}
+
+form button[type="submit"] {
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}

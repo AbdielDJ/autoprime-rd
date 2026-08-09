@@ -1,0 +1,6 @@
+@AutoPrime.Facturacion_HostAddress = http://localhost:5289
+
+GET {{AutoPrime.Facturacion_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
