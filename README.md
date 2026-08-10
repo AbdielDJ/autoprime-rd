@@ -22,18 +22,6 @@ Sistema web de gestión y facturación para una agencia de vehículos en Repúbl
 
 ---
 
-## Capturas
-
-| Catálogo público | Panel administrativo |
-|---|---|
-| *(agrega aquí una captura del catálogo)* | *(agrega aquí una captura del dashboard)* |
-
-| Nueva factura | Ficha de vehículo |
-|---|---|
-| *(captura del formulario de facturación)* | *(captura de la ficha de un vehículo)* |
-
----
-
 ## Características
 
 ### Sitio público
