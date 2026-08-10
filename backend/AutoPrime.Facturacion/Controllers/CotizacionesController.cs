@@ -54,7 +54,7 @@ namespace AutoPrime.Facturacion.Controllers
                 VehiculoInteres = dto.VehiculoInteres,
                 VehiculoId = dto.VehiculoId,
                 Mensaje = dto.Mensaje,
-                Fecha = DateTime.Now,
+                Fecha = DateTime.UtcNow,
                 Estado = EstadoCotizacion.Nueva
             };
 

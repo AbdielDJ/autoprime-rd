@@ -75,7 +75,7 @@ namespace AutoPrime.Facturacion.Controllers
             {
                 NumeroFactura = numeroFactura,
                 Ncf = ncf,
-                Fecha = DateTime.Now,
+                Fecha = DateTime.UtcNow,
                 ClienteId = dto.ClienteId,
                 VehiculoId = dto.VehiculoId,
                 Vendedor = dto.Vendedor,

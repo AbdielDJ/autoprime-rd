@@ -17,7 +17,7 @@ namespace AutoPrime.Facturacion.Models
         [Required, MaxLength(20)]
         public string NumeroFactura { get; set; } = string.Empty; // Ej: FACT-0001
 
-        public DateTime Fecha { get; set; } = DateTime.Now;
+        public DateTime Fecha { get; set; } = DateTime.UtcNow;
 
         // Relación con Cliente
         public int ClienteId { get; set; }

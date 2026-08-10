@@ -31,7 +31,7 @@ namespace AutoPrime.Facturacion.Models
         [MaxLength(500)]
         public string? Mensaje { get; set; }
 
-        public DateTime Fecha { get; set; } = DateTime.Now;
+        public DateTime Fecha { get; set; } = DateTime.UtcNow;
 
         public EstadoCotizacion Estado { get; set; } = EstadoCotizacion.Nueva;
     }
