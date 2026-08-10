@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-const API_URL = "https://localhost:7273/api";
+const API_URL = "https://autoprime-api.onrender.com/api";
 
 export interface UsuarioSesion {
   id: number;
