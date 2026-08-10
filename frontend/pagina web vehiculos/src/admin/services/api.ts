@@ -1,4 +1,4 @@
-const API_URL = "https://autoprime-api.onrender.com/api";
+const API_URL = import.meta.env.VITE_API_URL || "https://localhost:7273/api";
 
 export interface UsuarioListado {
   id: number;
